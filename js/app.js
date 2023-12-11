@@ -4,6 +4,8 @@
  * Note: all requests to backend are disabled in this demo, you should use your own backend
  */
 
+// TODO togliere alert e console log e cose debug inutili NOSONAR
+
 const DemoApp = {
     initData: Telegram.WebApp.initData || '',
     initDataUnsafe: Telegram.WebApp.initDataUnsafe || {},
@@ -17,8 +19,13 @@ const DemoApp = {
 
     init(options) {
         document.body.style.visibility = '';
+        window.Telegram.WebApp.expand()
         Telegram.WebApp.ready();
-        DemoApp.initMainButton();
+        // alert(DemoApp.initDataUnsafe)
+        Telegram.WebApp.MainButton.setParams({
+            text: DemoApp.custom_config.main_button.text,
+            is_visible: DemoApp.custom_config.main_button.is_visible
+        }).onClick(DemoApp.placeBet);
     },
     expand() {
         Telegram.WebApp.expand();
@@ -27,16 +34,14 @@ const DemoApp = {
         Telegram.WebApp.close();
     },
     placeBet(){
-        alert("Placing your bet..")
-        alert("Success!")
+        alert("Bet placed!")
+        
+        // Send data on bet placed
+        const data = JSON.stringify({"test": "test"}); 
+        window.Telegram.WebApp.sendData(data);
+
+        // Close the web app
         DemoApp.close()
-    },
-    initMainButton() {
-        console.log("Setting main btn")
-        Telegram.WebApp.MainButton.setParams({
-            text: DemoApp.custom_config.main_button.text,
-            is_visible: DemoApp.custom_config.main_button.is_visible
-        }).onClick(DemoApp.placeBet);
     },
 
     // actions

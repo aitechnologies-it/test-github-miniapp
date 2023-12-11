@@ -141,25 +141,25 @@
     <!-- <div class="container" style="position: fixed; bottom: 0; background-color: #4e5261;"> -->
         <div class="row my-2">
             <div class="col-10 mx-0 px-2">
-                <input type="text" class="form-control" id="couponCode" placeholder="Amount to bet">
+                <input type="number" class="form-control" id="amount" placeholder="Amount to bet" value="0" \>
             </div>
             <div class="col-2 pr-2 pl-0 my-auto" style="text-align: center;">
-                <button class="btn btn-light btn-block small-money" style="padding: auto auto;">Clear</button>
+                <button class="btn btn-light btn-block small-money" style="padding: auto auto;" onclick="clearAmount()">Clear</button>
             </div>
         </div>
-        <div class="row mb-2">
+        <div class="row mb-2" onclick="addAmount(event)">
             
             <div class="col px-0 mx-1">
-                <button class="btn btn-light btn-block small-money">100</button>
+                <button class="btn btn-light btn-block small-money" data-amount="100">100</button>
             </div>
             <div class="col px-0 mx-1">
-                <button class="btn btn-light btn-block small-money">200</button>
+                <button class="btn btn-light btn-block small-money" data-amount="200">200</button>
             </div>
             <div class="col px-0 mx-1">
-                <button class="btn btn-light btn-block small-money">500</button>
+                <button class="btn btn-light btn-block small-money" data-amount="500">500</button>
             </div>
             <div class="col px-0 mx-1">
-                <button class="btn btn-light btn-block small-money">1000</button>
+                <button class="btn btn-light btn-block small-money" data-amount="1000">1000</button>
             </div>
         </div>
     </div>
